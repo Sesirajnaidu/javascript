@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function validate(){
+			var name=document.getElementById("Name").value;
+			var email=document.getElementById("Email").value;
+			/*console.log(name)
+			console.log(email)*/
+			fetch("https://reqres.in/api/users?page=2",{
+			method:"POST",
+			headers:{
+				"content-type":"application/json"
+			},
+			body:JSON.stringify({User:name,address:email})
+
+
+
+		})
+		.then((res)=>{
+			console.log(res)
+			return res.json()
+		})
+		.then((f)=>{
+			console.log(f)
+		})
+		}
+		
+	</script>
+		<input type="text" placeholder="Enter Name" id="Name"/>
+		<input type="text" placeholder="enter email" id="Email"/>
+		<button onclick="validate()">submit</button>	
+</body>
+</html>
