@@ -19,11 +19,13 @@
 			}
 		} 
 		function addTodo(newTodo){
+			const d = new Date();
+				
 			let ul=document.querySelector("ul")
 			console.log(ul)
 			let li=document.createElement("li")
 			li.innerHTML=`
-			<span class="listitem">${newTodo}</spam
+			<span class="listitem">${newTodo} ${d.getHours()}:${d.getMinutes()}</spam
 			<i class="fa-solid fa-circle-xmark"></i>`
 			li.classList.add("list-type")
 			ul.appendChild(li)
@@ -74,5 +76,6 @@
 	<ul>
 	</ul>
 	<button class="btn" onclick="todo()">submit</button>
+	<p id="demo"></p>
 </body>
 </html>
